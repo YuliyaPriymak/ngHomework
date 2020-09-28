@@ -11,6 +11,7 @@ import { PostComponent } from './components/posts/post/post.component';
 import { AllCommentsComponent } from './components/comments/all-comments/all-comments.component';
 import { CommentComponent } from './components/comments/comment/comment.component';
 import { UserDetailsComponent } from './components/users/user-details/user-details.component';
+import { AllUserPostsComponent } from './components/posts/all-user-posts/all-user-posts.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserDetailsComponent } from './components/users/user-details/user-detai
     PostComponent,
     AllCommentsComponent,
     CommentComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AllUserPostsComponent,
   ],
   imports: [
     BrowserModule,
