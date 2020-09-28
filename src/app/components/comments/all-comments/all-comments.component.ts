@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Comments} from '../../../models/Comment';
 
 @Component({
   selector: 'app-all-comments',
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-comments.component.scss']
 })
 export class AllCommentsComponent implements OnInit {
+  commentsList: Comments[] = [];
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.data.subscribe(value => {
+      console.log(value);
+      this.commentsList = value.comments;
+    });
+  }
 
   ngOnInit(): void {
   }
