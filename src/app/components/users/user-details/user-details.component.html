@@ -1,0 +1,12 @@
+<div>
+  <hr>
+  <p>
+    {{user.id}}. {{user.name}}, {{user.username}}<br>
+    phone: {{user.phone}},<br>
+    email: {{user.email}},<br>
+    website: {{user.website}},<br>
+    address: {{user.address.city}}, {{user.address.street}}
+  </p>
+  <button [routerLink]="['post']" [queryParams]="{id: user.id}">Posts {{user.username}}</button>
+  <hr>
+</div>

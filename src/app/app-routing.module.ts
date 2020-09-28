@@ -6,9 +6,13 @@ import {AllPostsComponent} from './components/posts/all-posts/all-posts.componen
 import {PostResolveService} from './services/post-resolve.service';
 import {AllCommentsComponent} from './components/comments/all-comments/all-comments.component';
 import {CommentResolveService} from './services/comment-resolve.service';
+import {UserDetailsComponent} from './components/users/user-details/user-details.component';
 
 const routes: Routes = [
-  {path: 'users', component: AllUsersComponent, resolve: {users: UserResolveService}},
+  {path: 'users', component: AllUsersComponent, resolve: {users: UserResolveService},
+  children: [
+    {path: 'details/:id', component: UserDetailsComponent}
+  ]},
   {path: 'posts', component: AllPostsComponent, resolve: {posts: PostResolveService}},
   {path: 'comments', component: AllCommentsComponent, resolve: {comments: CommentResolveService}}
 ];
