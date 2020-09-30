@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Resolve} from '@angular/router';
-import {Post} from '../models/Post';
+import {Post} from '../../../models/Post';
 import {PostService} from './post.service';
 import {Observable} from 'rxjs';
 
