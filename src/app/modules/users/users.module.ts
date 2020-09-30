@@ -9,12 +9,12 @@ import {UserComponent} from './components/user/user.component';
 import {UserDetailsComponent} from './components/user-details/user-details.component';
 import {PostService} from '../posts/services/post.service';
 import {AllUserPostsComponent} from './components/all-user-posts/all-user-posts.component';
-import {PostsModule} from '../posts/posts.module';
+import { UserPostsComponent } from './components/user-posts/user-posts.component';
 
 
 
 @NgModule({
-  declarations: [AllUsersComponent, UserComponent, UserDetailsComponent, AllUserPostsComponent],
+  declarations: [AllUsersComponent, UserComponent, UserDetailsComponent, AllUserPostsComponent, UserPostsComponent, UserPostsComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -31,7 +31,6 @@ import {PostsModule} from '../posts/posts.module';
         ]
       }
     ]),
-    // PostsModule
   ],
   providers: [UserService, UserResolveService, PostService],
 
