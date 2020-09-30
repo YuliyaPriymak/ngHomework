@@ -1,10 +1,5 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {AllPostsComponent} from './components/posts/all-posts/all-posts.component';
-import {PostResolveService} from './modules/posts/services/post-resolve.service';
-import {AllCommentsComponent} from './components/comments/all-comments/all-comments.component';
-import {CommentResolveService} from './services/comment-resolve.service';
-import {AllPostsComentsComponent} from './components/comments/all-posts-coments/all-posts-coments.component';
 
 const routes: Routes = [
   {path: 'users', loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule)},
@@ -24,13 +19,15 @@ const routes: Routes = [
        },
      ]
    },*/
-  {
+  {path: 'posts', loadChildren: () => import('./modules/posts/posts.module').then(m => m.PostsModule)},
+  /*{
     path: 'posts', component: AllPostsComponent, resolve: {posts: PostResolveService},
     children: [
       {path: 'comment', component: AllPostsComentsComponent}
     ]
-  },
-  {path: 'comments', component: AllCommentsComponent, resolve: {comments: CommentResolveService}}
+  },*/
+  {path: 'comments', loadChildren: () => import('./modules/comments/comments.module').then(m => m.CommentsModule)}
+  /*{path: 'comments', component: AllCommentsComponent, resolve: {comments: CommentResolveService}}*/
 ];
 
 @NgModule({

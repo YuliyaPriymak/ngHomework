@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Comments} from '../../../models/Comment';
+import {Comments} from '../../../../models/Comment';
 
 @Component({
   selector: 'app-comment',
