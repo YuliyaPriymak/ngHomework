@@ -4,12 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import { AllPostsComentsComponent } from './components/comments/all-posts-coments/all-posts-coments.component';
+import { UsersPipe } from './users.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AllPostsComentsComponent,
+    UsersPipe,
   ],
   imports: [
     BrowserModule,
