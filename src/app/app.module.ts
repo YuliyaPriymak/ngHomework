@@ -4,18 +4,24 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
-import { UsersPipe } from './users.pipe';
+import {FormsModule} from '@angular/forms';
+import { UserComponent } from './components/user/user.component';
+import { PostsComponent } from './components/posts/posts.component';
+import { AllPostsComponent } from './components/all-posts/all-posts.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersPipe,
+    UserComponent,
+    PostsComponent,
+    AllPostsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

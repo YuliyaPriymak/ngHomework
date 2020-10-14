@@ -1,0 +1,16 @@
+.user_form {
+  h1 {
+    margin-bottom: 5px;
+  }
+  form{
+    select{
+      padding: 5px 0;
+      option{
+        background-color: ghostwhite;
+      }
+    }
+    button{
+      margin: 0 5px;
+    }
+  }
+}

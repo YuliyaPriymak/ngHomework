@@ -1,4 +1,13 @@
-<!--{{usersList|users}}-->
-<div>{{usersList|users}}</div>
-
+<div class="user_form">
+  <h1><i>Select user</i></h1>
+  <form #form="ngForm">
+    <div *ngIf="idUsers.invalid">Choose user</div>
+    <select [(ngModel)]="Users" #idUsers="ngModel" name="idUsers" (change)="checkInput(idUsers.value, form)" required>
+      <option *ngFor="let user of usersList" [ngValue]="user">{{user.name}}</option>
+    </select>
+    <button [routerLink]="['user']" [state]="{user: currentUser }" [disabled]="form.invalid">more info</button>
+  </form>
+</div>
 <router-outlet></router-outlet>
+
+

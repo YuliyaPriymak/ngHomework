@@ -1,0 +1,7 @@
+<div class="user_info">
+  <h2>{{user.name}}</h2>
+  <span>id: {{user.id}},</span>
+  <span>email: {{user.email}}</span>
+  <button [routerLink]="['posts']" [queryParams]="{id: user.id}">{{user.name}} posts</button>
+</div>
+<router-outlet></router-outlet>

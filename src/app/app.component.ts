@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {IUser} from './IUser';
-import {UserService} from './user.service';
+import {UserService} from './services/user.service';
+import {IUser} from './models/user.model';
+import {NgForm, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +9,20 @@ import {UserService} from './user.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'ngHomework';
   usersList: IUser[] = [];
-  user: IUser;
+  Users;
+  currentUser: any;
 
   constructor(private userService: UserService) {
     this.userService.getAllUsers().subscribe(value => {
       this.usersList = value;
-      console.log(this.usersList);
     });
   }
 
   ngOnInit(): void {
+  }
+
+  checkInput(idUsers: NgModel, form: NgForm): void {
+    this.currentUser = idUsers;
   }
 }
