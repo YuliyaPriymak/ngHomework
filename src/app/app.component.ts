@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from './services/user.service';
 import {IUser} from './models/user.model';
-import {NgForm, NgModel} from '@angular/forms';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserService} from './services/user.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +10,35 @@ import {NgForm, NgModel} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  usersList: IUser[] = [];
-  Users;
-  currentUser: any;
+  form: FormGroup;
+  userName: FormControl = new FormControl('',
+    [Validators.required, Validators.maxLength(14), Validators.pattern(/[A-Z]/)]);
+  users: IUser[] = [];
+  currentUser: IUser[] = [];
 
-  constructor(private userService: UserService) {
-    this.userService.getAllUsers().subscribe(value => {
-      this.usersList = value;
-    });
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.userService.getUsers().subscribe(value => {
+      this.users = value;
+      console.log(this.users);
+    });
+    this.form = new FormGroup({
+      userName: this.userName
+    });
   }
 
-  checkInput(idUsers: NgModel, form: NgForm): void {
-    this.currentUser = idUsers;
+  details(name: string): void {
+    this.currentUser = this.users.filter(user => user.name.toLowerCase() === name.toLowerCase());
+    console.log(this.currentUser);
+    this.router.navigate(['user'], {
+      relativeTo: this.activatedRoute,
+      state: {user: this.currentUser}
+    });
+  }
+
+  action() {
+    console.log(this.userName);
   }
 }

@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 import {IUser} from '../../models/user.model';
 
 @Component({
@@ -8,13 +9,13 @@ import {IUser} from '../../models/user.model';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  user: IUser;
-
-  constructor(private  router: Router) {
-    this.user = history.state.user;
+  users: IUser[] = [];
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
+    console.log(history.state.user);
+    this.users = history.state.user;
   }
 
 }

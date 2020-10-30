@@ -1,7 +1,8 @@
-<div class="user_info">
-  <h2>{{user.name}}</h2>
-  <span>id: {{user.id}},</span>
-  <span>email: {{user.email}}</span>
-  <button [routerLink]="['posts']" [queryParams]="{id: user.id}">{{user.name}} posts</button>
+
+<div *ngIf="users">
+  <div *ngFor="let user of users">
+    <h2><i>{{user.id}}.{{user.name}}</i></h2>
+    <p>email: {{user.email}}</p>
+  </div>
 </div>
-<router-outlet></router-outlet>
+

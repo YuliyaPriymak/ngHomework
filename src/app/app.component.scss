@@ -1,16 +1,10 @@
-.user_form {
-  h1 {
-    margin-bottom: 5px;
-  }
-  form{
-    select{
-      padding: 5px 0;
-      option{
-        background-color: ghostwhite;
-      }
-    }
-    button{
-      margin: 0 5px;
-    }
-  }
+.red {
+  border: solid 4px deeppink;
+}
+.bgRed{
+  background-color: #FF6347;
+}
+.error {
+  color: 	#FF0000;
+  text-transform: uppercase;
 }
