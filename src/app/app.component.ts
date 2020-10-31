@@ -12,7 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class AppComponent implements OnInit {
   form: FormGroup;
   userName: FormControl = new FormControl('',
-    [Validators.required, Validators.maxLength(14), Validators.pattern(/[A-Z]/)]);
+    [Validators.required, Validators.maxLength(14), Validators.pattern(/[A-z]/)]);
   users: IUser[] = [];
   currentUser: IUser[] = [];
 

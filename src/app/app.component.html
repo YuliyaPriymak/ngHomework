@@ -2,7 +2,7 @@
   <h1>Enter user name</h1>
   <form [formGroup]="form" (ngSubmit)="action()">
     <input type="text" [formControl]="userName" [ngClass]="{bgRed: userName.errors?.maxlength?.requiredLength < userName.errors?.maxlength?.actualLength}">
-    <button (click)="details(userName.value)">Details</button>
+    <button (click)="details(userName.value)" [disabled]="form.invalid">Details</button>
     <div class="error" *ngIf="userName.errors.maxlength">Too long name!!!</div>
     <div class="error" *ngIf="userName.errors.pattern">Please, in english!</div>
   </form>
